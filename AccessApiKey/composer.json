@@ -1,0 +1,29 @@
+{
+    "name": "hypesewa/access-api-key",
+    "description": "Authorize requests to hypesewa service with API keys",
+    "keywords": ["api", "api key", "authentication", "authorization", "lumen"],
+    "type": "library",
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": ">=5.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hypesewa\\AccessApiKey\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "HypeSewa"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "hypesewa/access-api-key"
+            ]
+        }
+    }
+}

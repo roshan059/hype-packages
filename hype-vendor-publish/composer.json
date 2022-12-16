@@ -1,0 +1,24 @@
+{
+    "name": "hypesewa/hype-vender-publish",
+    "description": "vendor:publish for Lumen framework.",
+    "type": "library",
+    "require": {
+        "php": ">=5.4",
+        "league/flysystem": "^3.11",
+        "illuminate/support": "^9.44",
+        "illuminate/console": "^9.44"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hypesewa\\HypeVenderPublish\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Roshan Shrestha",
+            "email": "roshan@mavorion.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
