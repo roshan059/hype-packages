@@ -13,6 +13,7 @@ class CreateApiKeysTable extends Migration
      */
     public function up()
     {
+     if(Schema::hasTable('api_keys')){
         Schema::create('api_keys', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -24,6 +25,7 @@ class CreateApiKeysTable extends Migration
             $table->index('name');
             $table->index('key');
         });
+    }
     }
 
     /**

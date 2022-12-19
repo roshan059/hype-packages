@@ -22,6 +22,7 @@ class AuthorizeApiKey
     {
         $header = $request->header(self::AUTH_HEADER);
         $apiKey = ApiKey::getByServiceAccessKey($header);
+        // dd($apiKey);
 
         if ($apiKey instanceof ApiKey) {
             $this->logAccessEvent($request, $apiKey);

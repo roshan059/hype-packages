@@ -13,6 +13,7 @@ class CreateApiKeyAdminEventsTable extends Migration
      */
     public function up()
     {
+        if(Schema::hasTable('api_key_admin_events')){
         Schema::create('api_key_admin_events', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('api_key_id');
@@ -24,6 +25,7 @@ class CreateApiKeyAdminEventsTable extends Migration
             $table->index('event');
             $table->foreign('api_key_id')->references('id')->on('api_keys');
         });
+    }
     }
 
     /**

@@ -1,24 +1,24 @@
 <?php
 namespace Hypesewa\AccessApiKey\Providers;
-// use  Hypesewa\AccessApiKey\Console\Commands\ActivateApiKey;
-// use  Hypesewa\AccessApiKey\Console\Commands\DeactivateApiKey;
-// use  Hypesewa\AccessApiKey\Console\Commands\DeleteApiKey;
+use  Hypesewa\AccessApiKey\Console\Commands\ActivateApiKey;
+use  Hypesewa\AccessApiKey\Console\Commands\DeactivateApiKey;
+use  Hypesewa\AccessApiKey\Console\Commands\DeleteApiKey;
 use  Hypesewa\AccessApiKey\Console\Commands\GenerateApiKey;
-// use  Hypesewa\AccessApiKey\Console\Commands\ListApiKeys;
-use  Hypesewa\AccessApiKey\Http\Middleware\AuthorizeApiKey;
-use Laravel\Lumen\Routing\Router;
+use  Hypesewa\AccessApiKey\Console\Commands\ListApiKeys;
+// use Laravel\Lumen\Routing\Router;
+// use Laravel\Lumen\Routing\Controller;
 use Illuminate\Support\ServiceProvider;
 class ApiKeyServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      *
-     * @param Router $router
+ 
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
-        $this->registerMiddleware($router);
+        // $this->registerMiddleware($couter);
         $this->registerMigrations(__DIR__ . '/../../database/migrations/');
     }
     /**
@@ -29,11 +29,11 @@ class ApiKeyServiceProvider extends ServiceProvider
     public function register()
     {
         $this->commands([
-            // ActivateApiKey::class,
-            // DeactivateApiKey::class,
-            // DeleteApiKey::class,
+            ActivateApiKey::class,
+            DeactivateApiKey::class,
+            DeleteApiKey::class,
             GenerateApiKey::class,
-            // ListApiKeys::class,
+            ListApiKeys::class,
         ]);
     }
     /**
@@ -43,16 +43,18 @@ class ApiKeyServiceProvider extends ServiceProvider
      *
      * @param Router $router
      */
-    protected function registerMiddleware(Router $router)
-    {
-        $versionComparison = version_compare(app()->version(), '5.4.0');
-        // dd($router);
-        if ($versionComparison >= 0) {
-            $router->aliasMiddleware('auth.apikey', AuthorizeApiKey::class);
-        } else {
-            $router->middleware('auth.apikey', AuthorizeApiKey::class);
-        }
-    }
+    // protected function registerMiddleware(Controller $couter)
+    // {
+    //     $versionComparison = version_compare(app()->version(), '5.4.0');
+    //     // dd($router);
+    //     dd(AuthorizeApiKey::class);
+    //     if ($versionComparison >= 0) {
+     
+    //         $couter->aliasMiddleware('auth.apikey', AuthorizeApiKey::class);
+    //     } else {
+    //         $couter->middleware('auth.apikey', AuthorizeApiKey::class);
+    //     }
+    // }
     /**
      * Register migrations
      */

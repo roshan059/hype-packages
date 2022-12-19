@@ -92,9 +92,9 @@ class ApiKey extends Model
      public static function getByServiceAccessKey($key){
         return self::where([
             'key'=>$key,
-            'status'=>1,
+            'active'=>1,
             'name'=>'service-access-key'
-        ]);
+        ])->first();
      } 
     public static function getByKey($key)
     {
