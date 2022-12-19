@@ -13,7 +13,7 @@ class CreateApiKeyAccessEventsTable extends Migration
      */
     public function up()
     {
-        if(Schema::hasTable('api_key_access_events')){
+        if(!Schema::hasTable('api_key_access_events')){
         Schema::create('api_key_access_events', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('api_key_id');
